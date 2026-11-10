@@ -38,7 +38,7 @@ Choose the one that belongs to the subject's world:
 | Background | Suits |
 |---|---|
 | Felt texture | Craft, play |
-| Fluted (reeded) glass | Calm premium, wellness |
+| Fluted (reeded) glass | Calm premium, wellness; with saturated light streaks behind it, audio and tech launches |
 | Thermal gradients | Energy, health, heat |
 | Water ripples | Calm, water, wellness |
 | Speckled graphite | Industrial, tools |
@@ -48,7 +48,10 @@ Choose the one that belongs to the subject's world:
 | Grainy gradients | Modern brand grounds |
 | Grass texture | Outdoor, sport, nature |
 | Dithered images | Tech, retro computing |
-| Paper texture | Editorial, writing |
+| Paper texture (smooth, crumpled, kraft) | Editorial, writing; crumpled for zines and handmade |
+| Self-healing cutting mat (grid with ruler ticks) | Making, craft, design tools, workshops |
+| Fabric (satin, rib knit, jacquard, houndstooth) | Fashion, interiors, comfort products |
+| Hand-printed and woven patterns | Homeware, hospitality, slow and sustainable brands |
 | Contour lines | Maps, outdoor, data |
 | Cloud sky | Openness, travel |
 | Pixel mosaics | Games, digital |
@@ -63,9 +66,13 @@ Choose the one that belongs to the subject's world:
 Rules:
 - **One material per piece.** The background joins the material world.
 - **Keep it behind the content:** low contrast under text, and a scrim or a solid panel where body copy sits. Text still meets 4.5:1.
+- **Measure text on a texture at its extremes:** check it against the lightest and the darkest patch it crosses, not the average colour. Both must pass.
 - **Build it cheaply:**
   - Grain and paper: an SVG `feTurbulence` filter or a tiny tiled PNG at about 3–8% opacity.
+  - One neutral grey paper or fabric scan serves every brand colour: tile it over the colour with `background-blend-mode: multiply`. Check the tile repeated at least 2×2 on screen; a visible seam means it is not seamless.
   - Halftone, dots and grids: CSS gradients.
+  - Cutting mat: two layered `repeating-linear-gradient` grids (fine lines faint, every fifth line stronger), with ruler numbers as real text marked `aria-hidden`.
+  - Fabric and woven patterns: a seamless scanned tile (WebP or AVIF, about 100 KB or less) with `background-size` in px so the weave keeps its real scale at every width. Draped satin does not tile, so use it as a cover image.
   - Dither, ASCII, ripples and thermal: one shader or a pre-rendered image.
   - Fluted glass: `backdrop-filter` over a repeating gradient, or a shader.
 - **Animated backgrounds pause off-screen** and show a still under reduced motion.

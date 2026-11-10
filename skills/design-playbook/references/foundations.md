@@ -52,6 +52,7 @@ These are the floor for every site and app screen. The brief and taste build on 
 - **Caps** are for short labels only.
 - **Build hierarchy** from size, weight, colour and space, not by making everything bold.
 - **Pairings for marketing work.** Pair an expressive display face with a neutral grotesk for the body. Check every face's licence before use.
+- **Italic accent in a headline.** Set one word in the italic of the same serif and the rest in roman, at the same size, so the emphasis comes from voice rather than weight or colour. Use a family with a true italic, not a slanted roman.
 - **Survive user overrides.** Layouts must hold with line-height 1.5, paragraph spacing at 2×, letter-spacing 0.12em and word-spacing 0.16em (WCAG 1.4.12).
 - **Numbers.** In tables, stats and counters, use tabular numerals: `font-variant-numeric: tabular-nums`.
 - **Loading.** Font hosting and licences are covered in `ship-readiness.md`.
