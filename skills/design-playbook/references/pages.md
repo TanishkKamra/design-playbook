@@ -74,6 +74,17 @@ One ground plus one accent, with the rest neutral:
 
 Always check the accent's jobs with the contrast script; lime fails as a button shape on a pale ground (see `foundations.md`).
 
+## Quiet-luxury palettes
+Four or five colours, built the same way every time:
+- **A warm near-black, never #000:** #1A1918, #141413, #22201B.
+- **An off-white, never #FFF:** #F8F5F2, #FAFAF4, #F5EFDB.
+- **One or two mid neutrals** (stone, greige, taupe): #B7AEA1, #C9BFAD, #635E5A.
+- **One deep, low-chroma accent:** oxblood #641917, plum #461222, bottle navy #14384C, cognac #503125, olive #88876D or camel #C69E6A.
+- **No bright, saturated hue anywhere.** Grade the photography into the same palette (warm shadows, muted highlights) so the image and the interface read as one.
+- **Mid-tones are for surfaces and large type only.** Olive #88876D on #22201B is 4.44:1 and #F8F5F2 on cognac #9E7C5D is 3.52:1, so both fail body text. Set body text in the near-black or the off-white; pairs like #F5EFDB on #461222 (13.3:1) and #B7AEA1 on #1A1918 (8.0:1) pass easily.
+
+Sets that work: #1A1918 · #B7AEA1 · #F8F8F8 · #503125 (leather), #250D13 · #641917 · #F3F5F4 · #C69E6A (oxblood and camel), #141413 · #D4E6DF · #FAFAF4 · #635E5A (celadon), #461222 · #EFEEE8 · #33241F · #F5EFDB (plum and cream).
+
 ## Interactions: keep one only if its job applies here
 | Interaction | Its job | Watch out for |
 |---|---|---|

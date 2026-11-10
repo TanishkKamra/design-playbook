@@ -52,6 +52,10 @@ These are the floor for every site and app screen. The brief and taste build on 
 - **Caps** are for short labels only.
 - **Build hierarchy** from size, weight, colour and space, not by making everything bold.
 - **Pairings for marketing work.** Pair an expressive display face with a neutral grotesk for the body. Check every face's licence before use.
+  - Starting points by mood, all free on Google Fonts: elegant (Bodoni Moda or Playfair Display over a geometric sans), luxury (Cormorant Garamond over Lato), editorial and fresh (Fraunces over Inter), poster and loud (Anton over Mulish), tech (Rajdhani over Roboto), soft and friendly (Quicksand over Nunito).
+  - These are the most-used pairings on the web, so a brief that wants to stand out needs a less common face in the display role. Montserrat, Poppins, Lato and Open Sans in the display role read as a template.
+  - Thin display faces (Cormorant Garamond's light weights, Bodoni's hairlines) are for 24 px and up. Scripts such as Pacifico are for a few words of display only, never body text or all caps.
+  - Use the current family names: Mulish (not Muli) and Source Sans 3 (not Source Sans Pro). Google Fonts still serves the old names, but they are legacy. Helvetica Neue needs a paid licence; Inter is the free fallback.
 - **Italic accent in a headline.** Set one word in the italic of the same serif and the rest in roman, at the same size, so the emphasis comes from voice rather than weight or colour. Use a family with a true italic, not a slanted roman.
 - **Survive user overrides.** Layouts must hold with line-height 1.5, paragraph spacing at 2×, letter-spacing 0.12em and word-spacing 0.16em (WCAG 1.4.12).
 - **Numbers.** In tables, stats and counters, use tabular numerals: `font-variant-numeric: tabular-nums`.
