@@ -48,6 +48,8 @@ Exits run faster than entries. Perceived speed matters as much as real speed: ea
 
 **Interruptible:** UI motion can be interrupted mid-way and retargets from its current value. CSS transitions retarget; keyframe animations restart, so prefer transitions or springs for anything people can toggle quickly.
 
+**Shared element:** when an item opens into its detail view, the same element grows into place instead of the view cutting. Use View Transitions with `view-transition-name` (Chrome 111, Safari 18, Firefox 144).
+
 **Debugging:** slow everything down 2–5x to inspect it, then return to normal speed.
 
 ## Springs

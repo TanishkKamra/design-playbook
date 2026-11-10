@@ -52,6 +52,7 @@ Choose the one that belongs to the subject's world:
 | Self-healing cutting mat (grid with ruler ticks) | Making, craft, design tools, workshops |
 | Fabric (satin, rib knit, jacquard, houndstooth) | Fashion, interiors, comfort products |
 | Hand-printed and woven patterns | Homeware, hospitality, slow and sustainable brands |
+| Plastic-wrap overlay (crinkled clear film) | Streetwear, zines, club and music posters |
 | Contour lines | Maps, outdoor, data |
 | Cloud sky | Openness, travel |
 | Pixel mosaics | Games, digital |
@@ -76,7 +77,21 @@ Rules:
   - Dither, ASCII, ripples and thermal: one shader or a pre-rendered image.
   - Fluted glass: `backdrop-filter` over a repeating gradient, or a shader.
 - **Animated backgrounds pause off-screen** and show a still under reduced motion.
+  - Plastic wrap: a pre-rendered overlay with `mix-blend-mode: screen` or `soft-light`.
+- **Blurred or grainy type** works on one large display word only; every other piece of text on the page stays sharp.
 - **A textured ground fixes "flat" cheaply,** but it never replaces the hero object or real imagery.
+
+## Building a glowing object in layers
+Build it up in passes and judge each one before adding the next:
+1. A thin stroke shape.
+2. Soft light rays.
+3. A radial wipe that reveals the lit edge.
+4. A deep glow.
+5. A contrast pass.
+6. A second, fainter ray layer.
+7. A film finish: grain and a slight colour fringe on the brightest edge.
+
+On the web, use layered SVG with blur filters and `mix-blend-mode: screen`, or one shader. Animate only opacity and transform.
 
 ## Polish checklist
 - [ ] A real image, render or lit illustration wherever a subject is shown. No flat blobs.

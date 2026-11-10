@@ -27,6 +27,9 @@ Check this for anything real users will load. The privacy points apply to GDPR a
   - A paid font's cost is named to the client, with a free fallback.
 - [ ] **Subsetting:** fonts are subset to the scripts the site uses, and no unused weights load.
 
+## Logo and brand marks
+- [ ] **The mark survives four tests:** at 16 px (favicon size) it can still be named, in one colour no shapes merge, blurred its silhouette still reads, and reversed (white on dark) nothing disappears. Judge the 16 px test with someone who has not seen the mark before.
+
 ## Privacy by default
 - [ ] **Third-party assets:** self-host fonts, scripts and anything else that would leak visitor IPs to a third party.
 - [ ] **Analytics and session replay** load only after consent, with inputs masked. Replay never records passwords or payment fields.

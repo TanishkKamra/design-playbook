@@ -25,6 +25,7 @@ These are the floor for every site and app screen. The brief and taste build on 
   - The space inside a group is smaller than the space between groups.
   - A heading sits closer to its own content than to the section above it.
   - Recheck this when columns stack on narrow screens.
+  - Padding inside a card is never larger than the gap between cards. 40 px inside with a 12 px gap merges the cards into one block; 16 px inside with 32 px between keeps them separate.
 - **Start with too much whitespace, then remove some.** Cramped reads as cheap.
 - **Fluid space.** Use `clamp()` on each step between a 360 px and a ~1240 px viewport, instead of adding breakpoints.
 - **Section padding.** About 64–96 px on desktop and 40–56 px on a phone, tuned to the brief's density (convention).
@@ -50,6 +51,8 @@ These are the floor for every site and app screen. The brief and taste build on 
   - 0 on lowercase body text.
   - Slightly negative on large display text, no tighter than about -0.04em.
 - **Caps** are for short labels only.
+- **Line breaks.** Use `text-wrap: balance` on headings and `text-wrap: pretty` on paragraphs, so no single word is left alone on a last line (a widow) and no lone line is stranded at the top of a column (an orphan). `pretty` is not in Firefox yet and degrades harmlessly.
+- **Optical left edge.** Side bearings grow with size, so a large headline looks indented against the body text below it. Nudge the headline left until the stems line up, which is several px at display sizes. Hang opening quotation marks outside the text edge: `hanging-punctuation: first` works only in Safari, so elsewhere pull the quote out with a negative `text-indent` of about its width.
 - **Build hierarchy** from size, weight, colour and space, not by making everything bold.
 - **Pairings for marketing work.** Pair an expressive display face with a neutral grotesk for the body. Check every face's licence before use.
   - Starting points by mood, all free on Google Fonts: elegant (Bodoni Moda or Playfair Display over a geometric sans), luxury (Cormorant Garamond over Lato), editorial and fresh (Fraunces over Inter), poster and loud (Anton over Mulish), tech (Rajdhani over Roboto), soft and friendly (Quicksand over Nunito).
@@ -177,7 +180,13 @@ Older alternatives: #B00020 for light, #CF6679 for dark.
 - **Shadows.**
   - At most 2–3 elevation levels (card, raised, modal), all from one light direction.
   - Shadows carry elevation in light mode only; dark mode lightens the surface instead.
+  - Tint shadows toward the hue of the surface beneath, at low opacity; pure black shadows look muddy. A starting point is a blur about twice the Y offset (e.g. `0 8px 16px` at about 8%), then tune by eye.
 - **Icons.** One set, one grid (usually 24 px) and one stroke weight across the whole UI. The rule is one *style*; stamping the same default icon on every card regardless of meaning is a slop tell.
+  - Beside text, centre the icon on the x-height for lowercase labels or the cap height for caps, not on the line box.
+- **Optical corrections.** Maths gives the starting point; the eye decides.
+  - A play triangle centred by its box looks pushed left, because its centroid sits a sixth of its width left of the box centre. Nudge it right by up to that much.
+  - Circles and points look smaller than squares of the same height. Make circles a few percent larger (about 3–5%) and let points overshoot the line further, as type designers do with O and A.
+  - A row of logos is balanced by visual area, not equal height: wide wordmarks go shorter and compact marks taller.
 - **Targets.**
   - The WCAG AA floor is 24×24 px.
   - Aim for 44 pt (iOS) or 48 dp (Android) on touch, with about 8 px between targets.

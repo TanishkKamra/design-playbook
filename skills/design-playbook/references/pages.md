@@ -71,6 +71,8 @@ One ground plus one accent, with the rest neutral:
 - #28282A with cream #F5E8D3 (luxury).
 - #EEEEEE with coral #FF5E4E on a sky-blue image.
 - Navy #152E40 with lime #CEFF52.
+- Two-tone pairs that pass as text both ways: navy #04123F with gold #FFC40B (11.3:1), plum #3B163A with honey #F0C986 (9.8:1), deep teal #203D43 with pale leaf #CDFF9B (10.2:1), royal blue #0245EC with neon lime #D9FF3A (6.0:1). Swap ground and text for the inverse card; the ratio stays the same.
+- Near misses: coral #FF6332 on maroon #5E0000 only just passes (4.8:1), and red #E62727 on yellow #FFDE00 is 3.35:1, so it is for large display type only.
 
 Always check the accent's jobs with the contrast script; lime fails as a button shape on a pale ground (see `foundations.md`).
 
@@ -79,7 +81,7 @@ Four or five colours, built the same way every time:
 - **A warm near-black, never #000:** #1A1918, #141413, #22201B.
 - **An off-white, never #FFF:** #F8F5F2, #FAFAF4, #F5EFDB.
 - **One or two mid neutrals** (stone, greige, taupe): #B7AEA1, #C9BFAD, #635E5A.
-- **One deep, low-chroma accent:** oxblood #641917, plum #461222, bottle navy #14384C, cognac #503125, olive #88876D or camel #C69E6A.
+- **One deep, low-chroma accent:** oxblood #641917, plum #461222, bottle navy #14384C, cognac #503125, olive #88876D, camel #C69E6A, or warm sand #EFC07B on deep navy #16213E (9.5:1).
 - **No bright, saturated hue anywhere.** Grade the photography into the same palette (warm shadows, muted highlights) so the image and the interface read as one.
 - **Mid-tones are for surfaces and large type only.** Olive #88876D on #22201B is 4.44:1 and #F8F5F2 on cognac #9E7C5D is 3.52:1, so both fail body text. Set body text in the near-black or the off-white; pairs like #F5EFDB on #461222 (13.3:1) and #B7AEA1 on #1A1918 (8.0:1) pass easily.
 

@@ -28,6 +28,7 @@ Run this before gate 6 and on every audit.
 - [ ] **Colour bands:** the page isn't a stack of random full-bleed colour bands.
 - [ ] **Hero:** no purple gradient hero with a badge above the headline.
 - [ ] **Sliders:** no homepage hero slider or carousel; one decided message.
+- [ ] **Not a pasted prompt:** a widely shared site prompt gives a widely shared look. Change at least the display face, the palette, the hero object and the one authored motion moment.
 - [ ] **Second-screen test:** button roles, title scale, field heights and radii match on every route.
 
 ## Type and colour

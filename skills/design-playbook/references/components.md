@@ -29,6 +29,14 @@ If no principle explains a choice, it is decoration. The useful ones:
   - A pressed state that compresses (`scale(0.97)`).
   - Colour that carries the state, e.g. a fill that moves from red through amber to green with the value.
 
+## Patterns that make an app feel fast and solid
+- **Optimistic update:** show the result the moment someone acts (the like count rises), sync in the background, and roll back with a clear message if the server refuses. Never for payments or anything irreversible.
+- **Skeleton screens:** placeholder shapes in the final layout while content loads, so nothing jumps when it arrives. Spinners belong only inside small controls.
+- **No layout shift:** reserve space for everything that loads late: width and height or `aspect-ratio` on media, fixed slots for embeds, and skeletons the size of the real content.
+- **Progressive disclosure:** show the common options and keep the rest behind "More options", expanding in place.
+- **Combobox:** a text field that filters a list. Build it on the ARIA combobox pattern or an accessible primitive, never a div that only looks like one.
+- **Safe areas:** on phones, keep controls clear of the notch and the home bar with `env(safe-area-inset-*)`, which needs `viewport-fit=cover`.
+
 ## Buttons and actions
 - One filled primary action per view. Secondary actions are a quiet outline or plain text, never three equal buttons.
 - One colour is used for the primary action and for nothing else, so the eye learns that colour means "go".
@@ -38,7 +46,10 @@ If no principle explains a choice, it is decoration. The useful ones:
 - Sizing:
   - The touch target is at least 44–48 px tall even when the visible button is smaller.
   - Padding comes from the spacing scale.
-- States: hover only on pointer devices, `:focus-visible` ring at 3:1, pressed `scale(0.97)`, disabled as a pale tint with a readable label, and loading shown inside the button without changing its width.
+- States: hover only on pointer devices, `:focus-visible` ring at 3:1, pressed `scale(0.97)`, disabled as a pale tint with a readable label and a `not-allowed` cursor, and loading shown inside the button without changing its width.
+- The same state set applies to every control: checkboxes, radios, toggles, icon buttons and close buttons, not only buttons.
+- Centre the label on its cap height, not its text box: `text-box: trim-both cap alphabetic` (Chrome 133, Safari 18.2, Firefox 154; older browsers keep the normal box).
+- A price and its suffix ("$12 / month") align on the baseline (`align-items: baseline`), not the top or centre.
 
 ## Text fields
 - **Label:**
