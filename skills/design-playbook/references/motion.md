@@ -8,6 +8,8 @@
   - Modals, drawers and toasts: standard motion.
   - Rare moments (onboarding, a success, a launch): delight is allowed.
   - Keyboard-triggered actions never animate.
+  - Frequent interactions get instant feedback or, at most, an opacity or colour change of 150 ms or less.
+- **Motion is never the only feedback.** Every animated state change also has a static cue (a colour, an icon or a label) that stays once the motion ends or is turned off.
 - **Product UI and authored moments follow different rules:**
   - UI: ease-out, never ease-in, under 300 ms, exits faster than entries, springs without bounce unless the gesture carried momentum.
   - Authored scenes (a hero, a scroll story, a demo): a named-curve vocabulary and choreography.
@@ -33,12 +35,30 @@
 
 Exits run faster than entries. Perceived speed matters as much as real speed: ease-out at 200 ms feels faster than ease-in at 200 ms.
 
+**Exits** are quieter than entries, because attention is already moving on:
+- A short fixed move (about 12 px, never the element's full height) with a fade, at about half the entry's duration (e.g. 150 ms against 300 ms), on ease-out like the entry.
+- Slide fully out only when where it went matters (a drawer closing, a card returning to its list).
+- Remove the element instantly when movement adds nothing, the action repeats often, or reduced motion is on.
+
 **Scale and origin:**
-- Press feedback is `scale(0.97)` on `:active` (range 0.95–0.98).
+- Press feedback is `scale(0.97)` on `:active` (range 0.95–0.98; 0.96 is also common). Never go below 0.95, which looks exaggerated.
+  - Run it as a transition, so releasing mid-press eases back.
+  - Skip it on disabled controls.
+  - Give the button component an opt-out for places where the movement distracts.
 - Entries start from `scale(0.95)` plus `opacity: 0`, never from `scale(0)`.
 - Popovers and menus use a `transform-origin` at their trigger; modals stay centred.
 
-**Stagger:** 30–80 ms between items, and only to pace how one group is read.
+**Stagger:** 30–80 ms between items in a list, and only to pace how one group is read.
+- For a rare staged entrance (a hero's title, text and buttons, a success state), split the content into its meaningful chunks and leave about 100 ms between them, or about 80 ms per word when a title is split into words.
+- Never stagger frequent interactions such as row hovers, tab changes or keystrokes.
+- Authored heroes still use uneven offsets (see "One lead and its reactions").
+
+**Icon swaps** (play to pause, copy to check, an action icon appearing on hover) never just toggle visibility:
+- Animate scale 0.25 → 1, opacity 0 → 1 and blur 4 px → 0, on a spring with a duration of 0.3 s and no bounce.
+- Without a motion library, keep both icons in the DOM, one absolutely positioned over the other, and cross-fade them with transitions on `cubic-bezier(0.2, 0, 0, 1)` over about 300 ms, so both directions animate.
+- Static navigation and decorative icons do not animate.
+
+**No animation on first render** for anything already in its default state (toggles, tabs, segmented controls, icon swaps). In Motion, use `AnimatePresence initial={false}`; in CSS, turn the transitions on after the first frame. Intentional entrances (a staged hero, a loading state) keep theirs, so check a full reload.
 
 **Crossfades:** if one still feels wrong after tuning the easing and duration, add `filter: blur(2px)` during the change (always under 20 px).
 
@@ -56,7 +76,10 @@ Exits run faster than entries. Perceived speed matters as much as real speed: ea
 
 **Shared element:** when an item opens into its detail view, the same element grows into place instead of the view cutting. Use View Transitions with `view-transition-name` (Chrome 111, Safari 18, Firefox 144).
 
-**Debugging:** slow everything down 2–5x to inspect it, then return to normal speed.
+**Debugging:**
+- Slow everything down 2–5x to judge timing, then return to normal speed.
+- To catch first-frame flashes, wrong transform origins and blur artefacts, replay at 10% speed in the DevTools Animations panel, walking hover, focus, active, loading and empty.
+- What feels off when slowed is what feels subtly wrong at full speed.
 
 ## Springs
 - Think in damping and response rather than mass, stiffness and damping.
@@ -109,6 +132,8 @@ Exits run faster than entries. Perceived speed matters as much as real speed: ea
 1. **One clock.** Drive everything from a single `requestAnimationFrame` loop (a GSAP ticker or the smooth-scroll loop). No `scroll` handlers that touch layout. Use delta-time motion so 120 Hz screens stay correct.
 2. **Smooth the input, not the layout.** Lerp scroll and pointer values and render from the lerped value; never animate layout properties.
 3. **Composited properties only:** `transform`, `opacity`, `filter`, `clip-path`, `scale`, `translate`, `rotate`. Never animate width, height, top, margin or font-size.
+   - Name the properties you transition. Never use `transition: all` (or Tailwind's `transition-all`): it animates changes you did not intend and blocks browser optimisations.
+   - Use `will-change` only on transform, opacity or filter, only on elements that visibly stutter on their first frame (most often in Safari), and never `will-change: all`. Each promoted layer costs memory, so never add it preemptively.
 4. **Read, then write.** Cache sizes with ResizeObserver and IntersectionObserver, and never read layout inside the loop after a write.
 5. **Prepare before showing:**
    - Preload and decode images (`img.decode()`).

@@ -18,9 +18,9 @@ Copy this list into your notes and fill it in. Each line ends as **pass** with i
 - [ ] Secondary text is checked on its real surface (tints included). Proof: the script output.
 - [ ] Light mode uses an off-white canvas, white cards and near-black text. Dark mode uses a dark-grey ramp, lighter surfaces for elevation and desaturated accents. Proof: screenshots of both themes.
 - [ ] Dividers are light and inset, or replaced by space. Input borders pass 3:1. Proof: a screenshot plus the script output.
-- [ ] The radius set and the 2–3 shadow levels are applied consistently, and nested radius equals the outer radius minus the padding. Proof: the tokens plus a screenshot.
-- [ ] There is one icon set with one grid and one stroke. Proof: the icon imports.
-- [ ] Touch targets are at least 24 px, with 44–48 px on touch layouts. Proof: measured sizes.
+- [ ] The radius set and the 2–3 shadow levels are applied consistently. No nested radii are mismatched: inner equals outer minus padding, unless the padding is over about 24 px. Proof: the tokens plus a screenshot.
+- [ ] There is one icon set with one grid, its stroke matched to the adjacent text weight with one stroke per surface. Icons use `currentColor`, outline by default and filled when active. Proof: the icon imports plus a screenshot.
+- [ ] Touch targets are at least 24 px, with 44–48 px on touch layouts and 40 px in dense desktop UI, and no two hit areas overlap. Proof: measured sizes.
 - [ ] Nothing relies on colour alone, and the screen still reads in greyscale. Proof: a greyscale screenshot.
 
 ## C. Components and states (`components.md`)
@@ -43,7 +43,8 @@ Copy this list into your notes and fill it in. Each line ends as **pass** with i
 ## E. Motion (`motion.md`)
 - [ ] The frequency gate is applied: nothing frequent or keyboard-triggered animates. Proof: a motion inventory.
 - [ ] UI motion uses the token curves, no ease-in, durations in range and exits faster than entries. Proof: the tokens plus the motion inventory.
-- [ ] Only composited properties animate. Proof: a source search for `transition` and `animate` on layout properties.
+- [ ] Only composited properties animate. Transitions name their properties (no `transition: all`), and `will-change` appears only where a first-frame stutter was seen. Proof: a source search for `transition`, `animate` and `will-change`.
+- [ ] Every animated state change has a static cue too, and nothing already in its default state animates on first load. Proof: the motion inventory plus a full reload.
 - [ ] Authored moments have one lead with reactions at uneven offsets, and there is no preset stack. Proof: a timing list.
 - [ ] Reduced motion keeps opacity and colour changes and drops the movement, with nothing broken. Proof: an emulated screenshot or recording.
 - [ ] It holds 60 fps while scrolling and interacting. Off-screen effects pause and the DPR is capped. Proof: frame-time numbers from the first, cold scroll pass in a fresh tab (p95 at 16.8 ms or less, no frames over 33 ms).
@@ -76,7 +77,31 @@ Copy this list into your notes and fill it in. Each line ends as **pass** with i
 - [ ] In the audit path, a comparison with the baseline shows nothing that worked has broken. Proof: before and after screenshots.
 
 ## Report
-End with three parts:
+For a review, or for the findings of the audit path, report in this shape:
+- **Mode:**
+  - Quick covers the main path and the busiest states, reports only high and medium findings, and lists at most 5.
+  - Full covers the whole scope and lists at most 15.
+  - Default to full.
+- **Coverage table:**
+  - One row per area: foundations, components, motion, icons and surfaces, performance.
+  - Each row shows what was inspected and the result: a finding count, "clear", or "not reviewed" with the reason.
+  - Never imply an area was checked when it was not.
+- **Findings table** with the columns Severity | Location | Before | After | Why.
+  - High: something is inaccessible, misleading, unreadable or repeatedly disruptive.
+  - Medium: a noticeable usability or consistency problem.
+  - Low: isolated polish, reported in full mode only.
+  - Location is `file:line`, or the screen and the component.
+  - Why names the broken rule and its effect on people.
+  - A repeated issue is one row that lists every place it occurs.
+  - Never pad the table to reach the cap.
+- **Considered but rejected:** 1–3 real candidates in quick mode and 2–5 in full, each with the reason it stays. If there were fewer, say so rather than invent filler.
+- **Verdict:**
+  - **Block** if any high finding remains.
+  - **Needs changes** if only medium or low findings remain.
+  - **Approve** only when nothing actionable remains.
+  - List every unverified check beside the verdict.
+
+Then end with three parts:
 - **Verified:** each item with its proof.
 - **Not verified:** each item, with the reason.
 - **Risks and follow-ups.**
