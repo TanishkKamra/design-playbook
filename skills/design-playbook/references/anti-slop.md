@@ -45,6 +45,9 @@ Run this before gate 6 and on every audit.
 
 ## Content
 - [ ] **Copy:** names real things, with none of "seamless", "unlock", "elevate", "everything you need" or "supercharge".
+- [ ] **No fake-deep taglines:** no "It's not X. It's Y." ("It's not a to-do list. It's a second brain."). The headline says what the product does for people, with a concrete outcome ("Plan your week in 5 minutes").
+- [ ] **Em dashes:** at most one per paragraph. Three in a paragraph reads as chatbot copy; split it into short sentences, one idea each.
+- [ ] **Buttons name the action, not the technology:** "Summarize notes", not "✨ Generate" or "Ask AI".
 - [ ] **Placeholders:** none left in.
   - Mock content is specific and believable (names, places, numbers), never lorem or generic SaaS features.
 - [ ] **No fake proof:**
