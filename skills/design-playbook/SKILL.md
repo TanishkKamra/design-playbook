@@ -1,6 +1,6 @@
 ---
 name: design-playbook
-description: Supervisor for every design and visual front-end task - websites, landing pages, portfolios, app screens, dashboards, components, design systems, motion, posters and UI audits or redesigns. It walks the agent through six gated stages (brief, direction, structure, build, verify, audit), and each gate needs proof such as contrast numbers, screenshots at 375 and 1440 px and a ticked audit. It holds the hard rules - layout, spacing, type, colour and contrast, light and dark themes, components and UX copy, page and hero structures, motion numbers, polish, anti-slop tells, smoothness and ship-readiness. Load it at the start of any design or UI work, alongside any other design skill, and before calling a design done.
+description: Supervisor for every design and visual front-end task - websites, landing pages, portfolios, app screens, dashboards, components, design systems, motion, posters and UI audits or redesigns. It walks the agent through six gated stages (brief, direction, structure, build, verify, audit) and the full designer workflow inside them (research and discovery, IA and user flows, usability testing, hand-off), and each gate needs proof such as contrast numbers, screenshots at 375 and 1440 px and a ticked audit. It holds the hard rules - layout, spacing, type, colour and contrast, light and dark themes, components and UX copy, page and hero structures, motion numbers, polish, anti-slop tells, smoothness and ship-readiness. Load it at the start of any design or UI work, alongside any other design skill, and before calling a design done.
 ---
 
 # Design playbook
@@ -38,17 +38,26 @@ The mode sets how bold to be. Write it down at stage 1.
 
 ## Stage 1: Brief
 
-Read: nothing yet; this stage is questions and content.
+Read: `references/process.md` "Size it to the project" and "Phase 1: Research and discovery".
 
 Do:
 - Write down what it is, who it is for, the one job of this surface, the action you want, and the constraints (stack, brand, assets, deadline, platforms).
+- Size the work as Light, Standard or Full (see `process.md`), then run Phase 1 at that size:
+  - Audience segments.
+  - Needs and pain points in the users' own words.
+  - A competitor scan.
+  - Functional requirements.
+  - Accessibility and platform needs.
+  - A journey map for Standard and Full work.
+  Never invent research; ask the user for real material and quote public evidence.
 - Collect the real content: copy, images, data, names. List what is missing. Never invent metrics, testimonials, client logos, awards or quotes. Use clearly marked placeholders only when the user agrees.
 - For Sell surfaces, answer three questions in one line each: what do you do, is this for me, why should I trust you.
 - For a shop, a form or any flow, write the failure list before designing: out of stock, invalid input, expired code, payment declined, offline, signed out, empty results, slow network, very long names. The list is part of the design.
 - Ask every open question about the brief and the content in one round (see "Where it sits"). Direction choices (look, palette, type) wait for stage 2.
 
 **Gate 1 proof:**
-- A brief block with the fields above and the mode.
+- A brief block with the fields above, the mode and the size.
+- A research note sized to the project, ending in 3–5 design principles for this product and the one insight that shapes its character.
 - The content list, with gaps marked.
 - Every open question either answered by the user or listed as an assumption the user approved.
 
@@ -95,9 +104,14 @@ Do:
 
 ## Stage 3: Structure
 
-Read: `references/foundations.md` sections "1. Starting a layout" and "2. Spacing". Then `references/pages.md` "Hero structures" and "Section structures" for Sell or Show, or `references/components.md` "App screens" and "Dashboards" for Use.
+Read: `references/process.md` "Phase 2: Design and prototyping", then `references/foundations.md` sections "1. Starting a layout" and "2. Spacing". Then `references/pages.md` "Hero structures" and "Section structures" for Sell or Show, or `references/components.md` "App screens" and "Dashboards" for Use.
 
 Do:
+- Structure before screens:
+  - Information architecture and a sitemap: every page, its parent and its one job.
+  - A user flow for each of the top tasks, including the failure branches.
+  - A navigation plan.
+  For Light work, a section list and the one main flow are enough.
 - Wireframe in grey, 375 px first: rank the content, stack it in priority order, then widen and use the room. Colour comes last; if the hierarchy fails in greyscale, colour will not save it.
 - Choose the structure on purpose from the hero and section types in `pages.md`, or the screen patterns in `components.md`. The default centred title, two buttons and three icon cards is not allowed unless chosen and framed deliberately.
 - Name the hook and the one scroll-stopping moment (Sell), or the primary task path (Use).
@@ -107,6 +121,7 @@ Do:
 **Gate 3 proof:**
 - A greyscale wireframe or screenshot at 375 and 1440 px where the most important thing still reads first when you squint.
 - A section list with each section's one job.
+- The sitemap and the flows for the top tasks, with the step count of each.
 
 ## Stage 4: Build
 
@@ -139,8 +154,16 @@ Do:
 
 ## Stage 5: Verify in a real browser
 
+Read: `references/process.md` "Phase 3: Testing and refinement".
+
 Do:
 - Screenshot at 375 and about 1440 px, and also at 768 if the layout changes there. Look at every screenshot, list the defects and fix them in batches, then screenshot again.
+- Usability walkthrough. For each of the top 3 tasks:
+  - Start cold at the entry page as a first-time visitor and finish the task using only what is on screen.
+  - Record whether it was completed, the steps taken against the minimum, and every hesitation and error.
+  - Fix, then walk again.
+  For Standard and Full work, offer the user a test script for 5 real people.
+- Check the main flows in Chromium, Firefox and WebKit, and check touch with no hover.
 - Walk the whole page with Tab only: every control is reachable, the focus is visible and never hidden behind sticky bars, and the order is logical.
 - Trigger the states: hover, pressed, error, empty, loading, long content.
 - Emulate `prefers-reduced-motion: reduce`: nothing breaks, and movement drops while opacity and colour changes stay.
@@ -153,6 +176,8 @@ Do:
 
 **Gate 5 proof:**
 - The screenshots.
+- The walkthrough log for each task: completed or not, steps against the minimum, hesitations, and what was fixed.
+- The browsers checked.
 - The list of states and keyboard checks done.
 - The scan result.
 - The console and network result.
@@ -167,19 +192,24 @@ Do:
 - Run `references/audit.md` in full. Tick every line with its evidence, or mark it N/A with a reason.
 - Count the anti-slop tells. Every tell left must be one you chose on purpose for this brief.
 - Thumbnail test: shrink the screenshot to card size. Would someone stop scrolling for it? If not, it is not done.
+- Hand-off:
+  - Update `DESIGN.md`: principles, tokens, each component with its states and "when to use", motion tokens, and decisions with their reasons.
+  - Hand over the assets and the edge cases.
+  - Write a post-launch plan: one success metric per goal, how each is measured, and the review dates.
 - Report in three parts:
   - **Verified**, with the proof for each item.
   - **Not verified**, with the reason for each.
   - **Risks and follow-ups.**
 - Never call anything "done" or "working" that sits under Not verified.
 
-**Gate 6 proof:** the filled audit and the report.
+**Gate 6 proof:** the filled audit, the hand-off (`DESIGN.md` and the post-launch plan) and the report.
 
 ## The audit path (existing designs)
 
 1. **Baseline first.** Before changing anything:
    - Screenshot every route at 375 and 1440 px.
    - Run `scripts/contrast.mjs` on the live palette.
+   - Walk the top 3 tasks as a first-time visitor (`process.md` Phase 3) and log every hesitation and error.
    - Note what works and must be kept: the identity, the content, the flows people rely on.
 2. **Audit.** Run `references/audit.md` and `references/anti-slop.md` against it.
 3. **Rank the findings.** Each finding names the place, the rule it breaks and the fix. Rank them in this order:
@@ -195,6 +225,7 @@ Do:
 
 | File | Read when |
 |---|---|
+| `references/process.md` | Every new piece of work: sizing, research and discovery, IA and flows, usability testing, hand-off and post-launch review |
 | `references/foundations.md` | Every task. Layout start, spacing, type, colour and contrast, light and dark themes, dividers, radius, shadow, icons, targets |
 | `references/components.md` | App screens, dashboards, forms, any component; UX copy for errors, empty states and labels |
 | `references/pages.md` | Websites, landing pages and portfolios: hero and section types, homepage decisions and process |

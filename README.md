@@ -29,6 +29,7 @@ The skill then loads itself for any design or UI task. You can also call it dire
 skills/design-playbook/
   SKILL.md                 the supervisor: paths, modes, the six gated stages, the audit path
   references/
+    process.md             the whole designer workflow: research, IA and flows, usability testing, hand-off, post-launch
     foundations.md         layout, spacing, type, colour, contrast, light/dark, basics
     components.md          fields, buttons, errors, empty states, modal vs sheet, dashboards, charts, UX copy
     pages.md               homepage process, hero and section structures, interactions with a job, the award-level bar
