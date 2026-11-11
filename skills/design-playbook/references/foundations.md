@@ -62,7 +62,7 @@ These are the floor for every site and app screen. The brief and taste build on 
 - **Italic accent in a headline.** Set one word in the italic of the same serif and the rest in roman, at the same size, so the emphasis comes from voice rather than weight or colour. Use a family with a true italic, not a slanted roman.
 - **Survive user overrides.** Layouts must hold with line-height 1.5, paragraph spacing at 2×, letter-spacing 0.12em and word-spacing 0.16em (WCAG 1.4.12).
 - **Numbers.** In tables, stats and counters, use tabular numerals: `font-variant-numeric: tabular-nums`.
-- **Rendering on macOS.** Set `-webkit-font-smoothing: antialiased` and `-moz-osx-font-smoothing: grayscale` once on the root, so text renders crisper and no heavier than drawn. Never set it per element, which makes weights inconsistent. Other platforms ignore both properties.
+- **Rendering on macOS.** Where the type renders too heavy on a Mac, set `-webkit-font-smoothing: antialiased` and `-moz-osx-font-smoothing: grayscale` once on the root, so text renders crisper and no heavier than drawn. Check that thin weights stay readable. It is a per-project choice, not a starter default. Never set it per element, which makes weights inconsistent. Other platforms ignore both properties.
 - **Loading.** Font hosting and licences are covered in `ship-readiness.md`.
 
 ## 4. Colour

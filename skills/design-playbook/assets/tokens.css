@@ -186,11 +186,7 @@
 }
 
 /* ---------- Base behaviour every project wants ---------- */
-html {
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;   /* macOS only; set once at the root */
-  -moz-osx-font-smoothing: grayscale;
-}
+html { -webkit-text-size-adjust: 100%; }
 body {
   background: var(--canvas);
   color: var(--ink);
