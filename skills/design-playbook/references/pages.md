@@ -42,9 +42,9 @@ Start from the wireframe (what each block is and how big), then choose one struc
 | Product-led split | A tall product image fills the centre column, with title, price or specs and the CTA in narrow side tiles. |
 | Organic masks | Images are cut into soft, interlocking blob or arc shapes. Text tiles stay small, so the shapes carry the layout. |
 | Overlapping product shot | An editorial wordmark with the product photo breaking out of its frame or across a diagonal cut. |
-| Framed centre | If it stays centred, a shape frames it: a background arc, a glowing ring behind the title, or a wordmark lit from behind. |
-| Cinematic product | A near-black stage, the product lit with a coloured rim light, and the wordmark passing behind or through it. |
-| Gallery | A fan or arc of cards over a photo sky, or a row of portraits with a marquee of short words. |
+| Framed centre | If it stays centred, a shape frames it: a background arc, a glowing ring behind the title, a wordmark lit from behind, or a mountain ridge or fog bank that the headline sits inside. |
+| Cinematic product | A near-black stage, the product lit with a coloured rim light, and the wordmark passing behind or through it. The stage can be a whole built scene (a landscape, a castle, a room) instead of one product: giant wordmark letters stand in the foreground, the scene sits behind them, and the headline is set in the sky. |
+| Gallery | A fan or arc of cards over a photo sky, a concave strip of cards that bends away at both ends under a short headline, or a row of portraits with a marquee of short words. |
 | Bento of product photos | Product photos cut into tiles around a small text block. |
 | Product interface | A light beam or arc frames a short headline, and the real dashboard rises from below. |
 
