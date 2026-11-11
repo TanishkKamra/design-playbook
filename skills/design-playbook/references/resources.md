@@ -4,7 +4,10 @@ Use these to find references (stage 2) and component mechanics (stage 4). Everyt
 
 ## Finding references
 - **Lock the references before building** and tie every design decision to one of them. A reference picked after the fact only decorates a guess.
+- **Learn a reference by rebuilding it:** recreate one section, then change one value at a time (a spacing step, an easing, a duration) to see what each value was doing.
 - **Refero** (https://refero.design): a large library of real web and iOS screens and flows; the strongest product-UI reference. The free tier is limited.
+- **Refero Styles** (https://styles.refero.design): token sets reconstructed from real products (DESIGN.md, Tailwind v4, CSS variables, do's and don'ts). Unofficial and in beta: study the structure, never ship another brand's palette.
+- **navbar.gallery**, **footer.design** and **cta.gallery**: free screenshot galleries of navbars, footers and calls to action from real sites, filterable by type. Screenshots only, no code.
 - **Mobbin** (https://mobbin.com): real app screens and flows. Compare onboarding, settings and empty states across products.
 - **Details.so** (https://details.so): tagged hero, footer, nav and micro-interaction examples from live sites. Paid.
 - **Design Spells** (https://designspells.com): curated micro-interactions from real apps. Free.
@@ -19,6 +22,7 @@ Use these to find references (stage 2) and component mechanics (stage 4). Everyt
 - **Skiper UI** (https://skiper-ui.com) and **Vengeance UI** (https://vengenceui.com): animated shadcn-style components. Check the licence first; treat them as reference only.
 - **Animmaster Lib** (https://animmasterlib.dev): a paid bundle of GSAP and WebGL effects. Its usage terms are not stated, so ask the seller before shipping its code.
 - **HorizonX** (https://horizonx.so) and **Metalforge** (https://metalforge.xyz): paid 3D and perspective components and shader effects. Reference only.
+- **Jiro** (https://jiro.build): templates and sections with copyable AI prompts. Its terms forbid redistributing the content or using it to train AI, and the output looks templated, so study the structure only.
 - **Radix Primitives** (https://www.radix-ui.com) and **shadcn/ui** (https://ui.shadcn.com): accessible behaviour to build your own skin on.
 
 ## Charts and data

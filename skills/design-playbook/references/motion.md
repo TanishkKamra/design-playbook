@@ -48,6 +48,12 @@ Exits run faster than entries. Perceived speed matters as much as real speed: ea
 
 **Interruptible:** UI motion can be interrupted mid-way and retargets from its current value. CSS transitions retarget; keyframe animations restart, so prefer transitions or springs for anything people can toggle quickly.
 
+**Ways to open a menu,** picked by how often it is used and the product's character:
+- Daily tools: anchor pop (springs out from the button's edge and shrinks back into it on pick), fold down, kebab popover, or a command palette for power users.
+- Content that changes context: push back (the page recedes as the menu comes forward) or button to panel (the button itself grows into the menu).
+- Show and Sell surfaces only: turn over (the card flips to reveal the menu), card deal (items dealt out like cards, the picked one flies into the button), drum roll (items roll on a 3D drum), outline trace (a line traces the panel, then the rows wipe in), tile build (the panel assembles from tiles in a wave), gooey menu.
+- Whichever you choose: it grows from its trigger, the picked item returns to the trigger so the change is visible, it stays under about 300 ms and is interruptible, and under reduced motion it becomes a plain fade.
+
 **Shared element:** when an item opens into its detail view, the same element grows into place instead of the view cutting. Use View Transitions with `view-transition-name` (Chrome 111, Safari 18, Firefox 144).
 
 **Debugging:** slow everything down 2–5x to inspect it, then return to normal speed.

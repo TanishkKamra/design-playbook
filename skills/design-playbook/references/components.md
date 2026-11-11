@@ -51,6 +51,14 @@ If no principle explains a choice, it is decoration. The useful ones:
 - Centre the label on its cap height, not its text box: `text-box: trim-both cap alphabetic` (Chrome 133, Safari 18.2, Firefox 154; older browsers keep the normal box).
 - A price and its suffix ("$12 / month") align on the baseline (`align-items: baseline`), not the top or centre.
 
+## Paywalls and pricing
+- **Headline:** say what people get ("Build habits that actually stick"), not the tier's name ("Unlock Premium"). One clear line, so the filler line under it can go.
+- **Hero:** show the outcome working (a habit grid filling up, the finished export), never a sparkle or crown icon.
+- **Benefits:** three icons with two-word labels scan in a second; a four-line checklist has to be read.
+- **Plans:** two choices beat three equal cards. Pre-select the one you recommend, show the saving ("Save 58%") and the monthly equivalent, and say in plain words what happens after the trial ("Free for 7 days, then $39.99/year. Cancel anytime."). The button names the outcome ("Start my free week").
+- **Colour:** one brand colour on a calm surface, not three gradients, with more room between sections.
+- Honest by default: the real price and the renewal date sit next to the button, never only in fine print.
+
 ## Text fields
 - **Label:**
   - A real label above the field, about 15 px semibold.
