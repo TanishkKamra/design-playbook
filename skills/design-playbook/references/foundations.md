@@ -182,7 +182,8 @@ Older alternatives: #B00020 for light, #CF6679 for dark.
   - At most 2–3 elevation levels (card, raised, modal), all from one light direction.
   - Shadows carry elevation in light mode only; dark mode lightens the surface instead.
   - Tint shadows toward the hue of the surface beneath, at low opacity; pure black shadows look muddy. A starting point is a blur about twice the Y offset (e.g. `0 8px 16px` at about 8%), then tune by eye.
-  - **A shadow ring instead of a border** for cards, bordered buttons and containers whose border only fakes depth. A transparent ring works on any background, while a solid border colour only suits the surface it was picked for.
+  - **A shadow ring instead of a border** for cards, panels and other containers whose border only fakes depth. A transparent ring works on any background, while a solid border colour only suits the surface it was picked for.
+    - Never use the ring where the outline is what shows that something is a control (an outline button, a field). Those boundaries must pass 3:1 (WCAG 1.4.11), and a 6–8% ring does not. Use a real border or a filled surface there.
     - Light mode stacks three layers: a 1 px spread ring at about 6% black, a lift of `0 1px 2px -1px` at about 6%, and an ambient `0 2px 4px` at about 4%. On hover, raise them to about 8%, 8% and 6% with a 150 ms ease-out transition on `box-shadow`.
     - Dark mode uses only the ring, in white at about 8%, rising to about 13% on hover.
     - The tokens are `--shadow-ring` and `--shadow-ring-hover` in `assets/tokens.css`.

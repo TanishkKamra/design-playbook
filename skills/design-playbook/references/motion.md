@@ -132,6 +132,7 @@ Exits run faster than entries. Perceived speed matters as much as real speed: ea
 1. **One clock.** Drive everything from a single `requestAnimationFrame` loop (a GSAP ticker or the smooth-scroll loop). No `scroll` handlers that touch layout. Use delta-time motion so 120 Hz screens stay correct.
 2. **Smooth the input, not the layout.** Lerp scroll and pointer values and render from the lerped value; never animate layout properties.
 3. **Composited properties only:** `transform`, `opacity`, `filter`, `clip-path`, `scale`, `translate`, `rotate`. Never animate width, height, top, margin or font-size.
+   - Short hover changes of `color`, `background-color` or `box-shadow` (150 ms or less) on one small element at a time, such as a button or a hovered card's ring, are the exception. Never run them on many elements at once or during scroll.
    - Name the properties you transition. Never use `transition: all` (or Tailwind's `transition-all`): it animates changes you did not intend and blocks browser optimisations.
    - Use `will-change` only on transform, opacity or filter, only on elements that visibly stutter on their first frame (most often in Safari), and never `will-change: all`. Each promoted layer costs memory, so never add it preemptively.
 4. **Read, then write.** Cache sizes with ResizeObserver and IntersectionObserver, and never read layout inside the loop after a write.

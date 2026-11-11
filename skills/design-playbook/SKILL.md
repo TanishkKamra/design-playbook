@@ -142,7 +142,7 @@ Do:
   - The frequency gate decides whether anything animates.
   - UI motion uses the token curves and durations.
   - Authored moments have one lead and reactions at uneven offsets.
-  - Animate only `transform` and `opacity` (plus `filter` and `clip-path` with care). `color` and `background-color` transitions on small elements such as buttons are fine.
+  - Animate only `transform` and `opacity` (plus `filter` and `clip-path` with care). Short (150 ms or less) `color`, `background-color` and `box-shadow` hover transitions on single small elements, such as buttons or a hovered card's ring, are fine.
   - A `prefers-reduced-motion` path exists.
 - Imagery is real photography, a rendered 3D object or a lit illustration, never flat geometric blobs standing in for a subject. Images are sized, compressed (AVIF or WebP) and lazy below the fold.
 - Fonts are self-hosted as woff2 with `font-display: swap`, the one display face preloaded, and the licence checked.

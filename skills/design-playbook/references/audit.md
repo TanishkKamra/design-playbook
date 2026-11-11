@@ -43,7 +43,7 @@ Copy this list into your notes and fill it in. Each line ends as **pass** with i
 ## E. Motion (`motion.md`)
 - [ ] The frequency gate is applied: nothing frequent or keyboard-triggered animates. Proof: a motion inventory.
 - [ ] UI motion uses the token curves, no ease-in, durations in range and exits faster than entries. Proof: the tokens plus the motion inventory.
-- [ ] Only composited properties animate. Transitions name their properties (no `transition: all`), and `will-change` appears only where a first-frame stutter was seen. Proof: a source search for `transition`, `animate` and `will-change`.
+- [ ] Only composited properties animate, apart from short hover changes of colour, background or shadow on single small elements. Transitions name their properties (no `transition: all`), and `will-change` appears only where a first-frame stutter was seen. Proof: a source search for `transition`, `animate` and `will-change`.
 - [ ] Every animated state change has a static cue too, and nothing already in its default state animates on first load. Proof: the motion inventory plus a full reload.
 - [ ] Authored moments have one lead with reactions at uneven offsets, and there is no preset stack. Proof: a timing list.
 - [ ] Reduced motion keeps opacity and colour changes and drops the movement, with nothing broken. Proof: an emulated screenshot or recording.
