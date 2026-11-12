@@ -1,0 +1,23 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "design-playbook",
+  "metadata": {
+    "description": "A supervisor skill that walks agents through design work with hard, evidence-based gates."
+  },
+  "owner": {
+    "name": "Tanishk Kamra"
+  },
+  "plugins": [
+    {
+      "name": "design-playbook",
+      "description": "A supervisor skill for design work: gated stages with proof, plus the rules, numbers and checklists for layout, type, colour and contrast, components, pages, motion, polish, anti-slop and ship-readiness.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Tanishk Kamra"
+      },
+      "source": "./",
+      "category": "design",
+      "tags": ["design", "frontend", "ui", "ux", "accessibility", "motion"]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "design-playbook",
+  "description": "A supervisor skill for design work: six gated stages (brief, direction, structure, build, verify, audit) that need proof, plus the rules, numbers and checklists for layout, type, colour and contrast, components, pages, motion, polish, anti-slop and ship-readiness.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tanishk Kamra"
+  },
+  "repository": "https://github.com/TanishkKamra/design-playbook",
+  "license": "MIT",
+  "keywords": ["design", "ui", "ux", "frontend", "accessibility", "motion", "skills"],
+  "skills": "./skills/"
+}

@@ -1,0 +1,213 @@
+/* Design playbook: starter tokens.
+   Copy into the project, then replace every value marked SET with the gate 2 direction.
+   After this file exists, no raw colour, spacing, radius, font-size or duration
+   should appear anywhere else in the styles. */
+
+:root {
+  /* ---------- Spacing: 4 px base, steps at least ~25% apart ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --section-pad: clamp(40px, 6vw + 16px, 96px);   /* 40–56 phone, 64–96 desktop */
+  --gutter: clamp(16px, 2vw + 8px, 24px);
+  --container: 1240px;                              /* SET: 1140–1440 */
+
+  /* ---------- Type: 1.25 ratio from 16 px, fluid at the top ---------- */
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; /* SET: chosen face first */
+  --font-display: var(--font-body);                                      /* SET */
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --text-sm: 0.8125rem;   /* 13: hints, captions */
+  --text-label: 0.9375rem; /* 15: field labels */
+  --text-base: 1rem;      /* 16: body, inputs (never smaller on inputs) */
+  --text-md: 1.25rem;     /* 20 */
+  --text-lg: 1.5625rem;   /* 25 */
+  --text-xl: clamp(1.8rem, 1.55rem + 0.8vw, 1.95rem);  /* ~29-31, stays above --text-lg */
+  --text-2xl: clamp(2.2rem, 1.8rem + 1.6vw, 2.45rem);  /* ~35-39, stays above --text-xl */
+  --text-display: clamp(2.5rem, 1.2rem + 5.5vw, 4.5rem);
+  --leading-tight: 1.1;   /* headings */
+  --leading-ui: 1.4;
+  --leading-body: 1.5;
+  --tracking-display: -0.02em; /* never tighter than -0.04em */
+  --tracking-caps: 0.08em;     /* +0.05 to +0.12em on caps labels */
+  --measure: 68ch;             /* 50–75 characters */
+  --weight-regular: 400;
+  --weight-medium: 600;
+  --weight-bold: 700;
+
+  /* ---------- Colour: light theme (check every pair with scripts/contrast.mjs) ---------- */
+  --canvas: #F2F2F7;        /* off-white base, never #FFF everywhere */
+  --surface: #FFFFFF;       /* cards sit on the canvas */
+  --ink: #1D1B20;           /* primary text, near-black */
+  --ink-2: #49454F;         /* secondary text, ~60-65% ink */
+  --ink-disabled: #A9A8AA;
+  --divider: #E5E5EA;       /* or rgb(0 0 0 / 0.12) */
+  --field-border: #79747E;  /* control borders need 3:1 */
+  --accent: #6440E0;        /* SET: the one "tap here" colour */
+  --accent-pressed: #4422B2;
+  --accent-tint: color-mix(in oklch, var(--accent) 15%, var(--surface));
+  --on-accent: #FFFFFF;
+  --focus-ring: var(--accent);
+  --error: #B3261E;
+  --on-error: #FFFFFF;
+  --error-container: #F6CBC8;
+  --on-error-container: #410E0B;
+  --success: #1B6C3A;  --on-success: #FFFFFF;   /* states only, never decoration */
+  --warning: #8A5A00;  --on-warning: #FFFFFF;
+  --info: #0B5CAD;     --on-info: #FFFFFF;
+  --surface-raised: #FFFFFF;                    /* menus, popovers */
+  --surface-modal: #FFFFFF;                     /* dialogs, sheets */
+  /* Charts: colour-blind-safe order, each at 3:1 or more on --surface. Pair with labels or shapes. */
+  --chart-1: #0072B2;
+  --chart-2: #C25400;
+  --chart-3: #00876A;
+  --chart-4: #B0508A;
+  --chart-5: #6E59C7;
+
+  /* ---------- Shape and elevation ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 28px;
+  --radius-full: 999px;
+  --border-w: 1.5px;   /* control borders */
+  --ring-w: 2px;       /* focus ring */
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.06), 0 1px 3px rgb(0 0 0 / 0.08);
+  --shadow-raised: 0 4px 12px rgb(0 0 0 / 0.10), 0 2px 4px rgb(0 0 0 / 0.06);
+  --shadow-modal: 0 24px 48px rgb(0 0 0 / 0.18), 0 8px 16px rgb(0 0 0 / 0.08);
+  /* Ring instead of a border, for cards and buttons whose border only fakes depth */
+  --shadow-ring: 0 0 0 1px rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06), 0 2px 4px 0 rgb(0 0 0 / 0.04);
+  --shadow-ring-hover: 0 0 0 1px rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08), 0 2px 4px 0 rgb(0 0 0 / 0.06);
+
+  /* ---------- Targets ---------- */
+  --target-min: 24px;   /* WCAG AA floor */
+  --target-touch: 44px; /* 44-48 on touch */
+  --field-height: 48px;
+
+  /* ---------- Motion: UI tokens ---------- */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --dur-press: 120ms;     /* 100-160 */
+  --dur-tooltip: 150ms;   /* 125-200 */
+  --dur-dropdown: 200ms;  /* 150-250 */
+  --dur-modal: 280ms;     /* 200-500 */
+  --dur-exit: 160ms;      /* exits faster than entries */
+  --stagger: 50ms;        /* 30-80 */
+  --press-scale: 0.97;
+  --enter-scale: 0.95;    /* popovers grow from here, never from 0 */
+  --dur-fade: 200ms;      /* opacity-only changes, and the reduced-motion fallback */
+  --dur-reveal: 420ms;    /* scroll reveals */
+  --ease-reveal: var(--ease-out);
+  --reveal-shift: 12px;
+
+  /* ---------- Motion: named curves for authored moments only (tune per project) ---------- */
+  --ease-land: cubic-bezier(0.16, 1, 0.3, 1);    /* soft arrival */
+  --ease-heavy: cubic-bezier(0.7, 0, 0.2, 1);    /* big mass */
+  --ease-whip: cubic-bezier(0.85, 0, 0.15, 1);   /* fast snap */
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);       /* leaving quickly */
+}
+
+/* ---------- Dark theme: its own theme, not an inversion ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { color-scheme: dark; }
+}
+:root[data-theme="dark"] { color-scheme: dark; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --canvas: #121212;
+    --surface: #1E1E1E;       /* lighter = higher; 4dp #272727, 8dp #2E2E2E, 24dp #383838 */
+    --ink: #E0E0E0;           /* 87% */
+    --ink-2: #A0A0A0;         /* 60% */
+    --ink-disabled: #6C6C6C;  /* 38%, disabled only */
+    --divider: #38383A;
+    --field-border: #938F99;
+    --accent: #BB86FC;        /* SET: desaturated ~200 tone */
+    --accent-pressed: #D0A8FF;
+    --on-accent: #1D1B20;
+    --error: #F2B8B5;
+    --on-error: #601410;
+    --error-container: #8C1D18;
+    --on-error-container: #F9DEDC;
+    --success: #7DD99B;  --on-success: #121212;
+    --warning: #F2C14E;  --on-warning: #121212;
+    --info: #8AB4F8;     --on-info: #121212;
+    --surface-raised: #2E2E2E;
+    --surface-modal: #333333;  /* not #383838: secondary text and the accent drop below 4.5 there */
+    --chart-1: #56B4E9;
+    --chart-2: #E69F00;
+    --chart-3: #2BC59B;
+    --chart-4: #E09BC4;
+    --chart-5: #B6A6F5;
+    --shadow-card: none;      /* dark mode shows elevation by surface lightness */
+    --shadow-raised: 0 4px 12px rgb(0 0 0 / 0.4);
+    --shadow-modal: 0 24px 48px rgb(0 0 0 / 0.5);
+    --shadow-ring: 0 0 0 1px rgb(255 255 255 / 0.08);
+    --shadow-ring-hover: 0 0 0 1px rgb(255 255 255 / 0.13);
+  }
+}
+:root[data-theme="dark"] {
+  --canvas: #121212;
+  --surface: #1E1E1E;
+  --ink: #E0E0E0;
+  --ink-2: #A0A0A0;
+  --ink-disabled: #6C6C6C;
+  --divider: #38383A;
+  --field-border: #938F99;
+  --accent: #BB86FC;
+  --accent-pressed: #D0A8FF;
+  --on-accent: #1D1B20;
+  --error: #F2B8B5;
+  --on-error: #601410;
+  --error-container: #8C1D18;
+  --on-error-container: #F9DEDC;
+  --success: #7DD99B;  --on-success: #121212;
+  --warning: #F2C14E;  --on-warning: #121212;
+  --info: #8AB4F8;     --on-info: #121212;
+  --surface-raised: #2E2E2E;
+  --surface-modal: #333333;
+  --chart-1: #56B4E9;
+  --chart-2: #E69F00;
+  --chart-3: #2BC59B;
+  --chart-4: #E09BC4;
+  --chart-5: #B6A6F5;
+  --shadow-card: none;
+  --shadow-raised: 0 4px 12px rgb(0 0 0 / 0.4);
+  --shadow-modal: 0 24px 48px rgb(0 0 0 / 0.5);
+  --shadow-ring: 0 0 0 1px rgb(255 255 255 / 0.08);
+  --shadow-ring-hover: 0 0 0 1px rgb(255 255 255 / 0.13);
+}
+
+/* ---------- Base behaviour every project wants ---------- */
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font: var(--weight-regular) var(--text-base) / var(--leading-body) var(--font-body);
+}
+:where(h1, h2, h3) { line-height: var(--leading-tight); text-wrap: balance; }
+:where(p, li) { max-width: var(--measure); text-wrap: pretty; }
+:where(table, .num) { font-variant-numeric: tabular-nums; }
+::selection { background: var(--accent-tint); color: var(--ink); }
+:focus-visible { outline: var(--ring-w) solid var(--focus-ring); outline-offset: 2px; }
+:where(a) { text-underline-offset: 0.2em; }
+
+/* Reduced motion: movement stops, opacity and colour changes stay.
+   Keyframe animations jump to their end state. An authored moment that should still
+   fade gives itself `animation: pb-fade var(--dur-fade) linear !important` inside this query. */
+@keyframes pb-fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-property: opacity, color, background-color, border-color !important;
+    scroll-behavior: auto !important;
+  }
+}
