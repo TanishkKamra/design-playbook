@@ -51,7 +51,7 @@ These are the floor for every site and app screen. The brief and taste build on 
   - 0 on lowercase body text.
   - Slightly negative on large display text, no tighter than about -0.04em.
 - **Caps** are for short labels only.
-- **Line breaks.** Use `text-wrap: balance` on headings and `text-wrap: pretty` on paragraphs, so no single word is left alone on a last line (a widow) and no lone line is stranded at the top of a column (an orphan). `pretty` is not in Firefox yet and degrades harmlessly.
+- **Line breaks.** Use `text-wrap: balance` on headings and `text-wrap: pretty` on paragraphs, so no single word is left alone on a last line (a widow) and no lone line is stranded at the top of a column (an orphan). `pretty` is not in Firefox yet and degrades harmlessly. `balance` only acts on short blocks (up to about 6 lines in Chromium and 10 in Firefox), so keep it for headings and short text and never set it on long paragraphs. Use `pretty` for short and medium text, and leave long text (10+ lines) and code on default wrapping.
 - **Optical left edge.** Side bearings grow with size, so a large headline looks indented against the body text below it. Nudge the headline left until the stems line up, which is several px at display sizes. Hang opening quotation marks outside the text edge: `hanging-punctuation: first` works only in Safari, so elsewhere pull the quote out with a negative `text-indent` of about its width.
 - **Build hierarchy** from size, weight, colour and space, not by making everything bold.
 - **Pairings for marketing work.** Pair an expressive display face with a neutral grotesk for the body. Check every face's licence before use.
@@ -62,6 +62,7 @@ These are the floor for every site and app screen. The brief and taste build on 
 - **Italic accent in a headline.** Set one word in the italic of the same serif and the rest in roman, at the same size, so the emphasis comes from voice rather than weight or colour. Use a family with a true italic, not a slanted roman.
 - **Survive user overrides.** Layouts must hold with line-height 1.5, paragraph spacing at 2×, letter-spacing 0.12em and word-spacing 0.16em (WCAG 1.4.12).
 - **Numbers.** In tables, stats and counters, use tabular numerals: `font-variant-numeric: tabular-nums`.
+- **Rendering on macOS.** Where the type renders too heavy on a Mac, set `-webkit-font-smoothing: antialiased` and `-moz-osx-font-smoothing: grayscale` once on the root, so text renders crisper and no heavier than drawn. Check that thin weights stay readable. It is a per-project choice, not a starter default. Never set it per element, which makes weights inconsistent. Other platforms ignore both properties.
 - **Loading.** Font hosting and licences are covered in `ship-readiness.md`.
 
 ## 4. Colour
@@ -176,20 +177,35 @@ Older alternatives: #B00020 for light, #CF6679 for dark.
 
 ## 5. Other basics
 - **Alignment.** Every element snaps to shared edges. Margins, gutters and rows come from one base unit.
-- **Radius.** Use a small set (e.g. 4 / 8 / 12 / 16 / 28 px, plus full for pills). A nested element's radius is the outer radius minus the padding.
+- **Radius.** Use a small set (e.g. 4 / 8 / 12 / 16 / 28 px, plus full for pills). Nested shapes are concentric: the outer radius equals the inner radius plus the padding between them, so an inner radius is the outer one minus the padding. The same radius on both makes the inner shape look pinched. Once the padding grows past about 24 px, the layers read as separate surfaces, so pick each radius on its own.
 - **Shadows.**
   - At most 2–3 elevation levels (card, raised, modal), all from one light direction.
   - Shadows carry elevation in light mode only; dark mode lightens the surface instead.
   - Tint shadows toward the hue of the surface beneath, at low opacity; pure black shadows look muddy. A starting point is a blur about twice the Y offset (e.g. `0 8px 16px` at about 8%), then tune by eye.
-- **Icons.** One set, one grid (usually 24 px) and one stroke weight across the whole UI. The rule is one *style*; stamping the same default icon on every card regardless of meaning is a slop tell.
+  - **A shadow ring instead of a border** for cards, panels and other containers whose border only fakes depth. A transparent ring works on any background, while a solid border colour only suits the surface it was picked for.
+    - Never use the ring where the outline is what shows that something is a control (an outline button, a field). Those boundaries must pass 3:1 (WCAG 1.4.11), and a 6–8% ring does not. Use a real border or a filled surface there.
+    - Light mode stacks three layers: a 1 px spread ring at about 6% black, a lift of `0 1px 2px -1px` at about 6%, and an ambient `0 2px 4px` at about 4%. On hover, raise them to about 8%, 8% and 6% with a 150 ms ease-out transition on `box-shadow`.
+    - Dark mode uses only the ring, in white at about 8%, rising to about 13% on hover.
+    - The tokens are `--shadow-ring` and `--shadow-ring-hover` in `assets/tokens.css`.
+    - Keep real borders for dividers, table cells, input outlines (which must pass 3:1) and selected or focus states. Those borders carry structure or state, not depth.
+- **Image edges.** Photos and screenshots get a 1 px inset outline (`outline: 1px solid`, `outline-offset: -1px`, so the size does not change). Use pure black at 10% in light mode and pure white at 10% in dark mode. A tinted neutral or the brand ink picks up the surface colour and reads as dirt on the edge. Transparent logos and cut-out illustrations get no outline.
+- **Icons.** One set and one grid (usually 24 px). The rule is one *style*; stamping the same default icon on every card regardless of meaning is a slop tell.
+  - **Stroke matches the text beside it.** On a 24 px grid, use 1.5 px next to regular (400) text, 2 px next to medium or semibold (500–600), and 2.5 px next to bold (700). Keep one stroke weight per surface, and never mix icon libraries on one surface.
+  - **Size:** inline icons are 1–1.25em. Use the set's native sizes (16, 20, 24) rather than fractional scales. Test every icon at its smallest rendered size, often 16 px, and use a simpler glyph there instead of shrinking a detailed one. Icons are SVG, never raster.
+  - **One SVG per icon, coloured with `currentColor`.** Strip hard-coded fills and strokes when importing, and let CSS colour and opacity drive hover, selected and disabled states. Outline is the default; the filled variant marks the active or selected state (active tab, saved bookmark, liked heart).
+  - **Right-to-left layouts:** flip back and forward arrows, navigation chevrons, send glyphs and list or indent icons. Never flip logos, checkmarks, clocks or media playback controls. Check composite icons part by part.
+  - Icon-only controls have an accessible name; decorative icons are hidden from assistive technology.
   - Beside text, centre the icon on the x-height for lowercase labels or the cap height for caps, not on the line box.
 - **Optical corrections.** Maths gives the starting point; the eye decides.
-  - A play triangle centred by its box looks pushed left, because its centroid sits a sixth of its width left of the box centre. Nudge it right by up to that much.
+  - A play triangle centred by its box looks pushed left, because its centroid sits a sixth of its width left of the box centre. Nudge it right by up to that much, which is about 2 px on a 12–16 px glyph.
+  - On a button with an icon and a label, the icon side gets about 2 px less padding than the text side (e.g. 16 px by the text, 14 px by the icon). Equal padding makes the icon look pushed out.
+  - Lopsided icons (stars, arrows, carets) are fixed once in the SVG's path or viewBox, not with margins in every component.
   - Circles and points look smaller than squares of the same height. Make circles a few percent larger (about 3–5%) and let points overshoot the line further, as type designers do with O and A.
   - A row of logos is balanced by visual area, not equal height: wide wordmarks go shorter and compact marks taller.
 - **Targets.**
   - The WCAG AA floor is 24×24 px.
-  - Aim for 44 pt (iOS) or 48 dp (Android) on touch, with about 8 px between targets.
+  - Aim for 44 pt (iOS) or 48 dp (Android) on touch, with about 8 px between targets. In dense desktop UI, use at least 40×40 px.
+  - When the visible control is smaller (a 20 px checkbox, a close icon), extend the hit area with an invisible pseudo-element. Two hit areas never overlap: shrink the extension until they stop colliding.
 - **Motion basics.**
   - Durations: 100–160 ms for UI feedback, most UI under 300 ms, modals and drawers 200–500 ms. The exact tokens and curves are in `motion.md`.
   - Ease-out on enter, faster exits, never linear for movement.

@@ -82,6 +82,9 @@
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.06), 0 1px 3px rgb(0 0 0 / 0.08);
   --shadow-raised: 0 4px 12px rgb(0 0 0 / 0.10), 0 2px 4px rgb(0 0 0 / 0.06);
   --shadow-modal: 0 24px 48px rgb(0 0 0 / 0.18), 0 8px 16px rgb(0 0 0 / 0.08);
+  /* Ring instead of a border, for cards and buttons whose border only fakes depth */
+  --shadow-ring: 0 0 0 1px rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06), 0 2px 4px 0 rgb(0 0 0 / 0.04);
+  --shadow-ring-hover: 0 0 0 1px rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08), 0 2px 4px 0 rgb(0 0 0 / 0.06);
 
   /* ---------- Targets ---------- */
   --target-min: 24px;   /* WCAG AA floor */
@@ -146,6 +149,8 @@
     --shadow-card: none;      /* dark mode shows elevation by surface lightness */
     --shadow-raised: 0 4px 12px rgb(0 0 0 / 0.4);
     --shadow-modal: 0 24px 48px rgb(0 0 0 / 0.5);
+    --shadow-ring: 0 0 0 1px rgb(255 255 255 / 0.08);
+    --shadow-ring-hover: 0 0 0 1px rgb(255 255 255 / 0.13);
   }
 }
 :root[data-theme="dark"] {
@@ -176,6 +181,8 @@
   --shadow-card: none;
   --shadow-raised: 0 4px 12px rgb(0 0 0 / 0.4);
   --shadow-modal: 0 24px 48px rgb(0 0 0 / 0.5);
+  --shadow-ring: 0 0 0 1px rgb(255 255 255 / 0.08);
+  --shadow-ring-hover: 0 0 0 1px rgb(255 255 255 / 0.13);
 }
 
 /* ---------- Base behaviour every project wants ---------- */
