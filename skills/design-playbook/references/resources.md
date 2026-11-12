@@ -24,6 +24,8 @@ Use these to find references (stage 2) and component mechanics (stage 4). Everyt
 - **HorizonX** (https://horizonx.so) and **Metalforge** (https://metalforge.xyz): paid 3D and perspective components and shader effects. Reference only.
 - **Jiro** (https://jiro.build): templates and sections with copyable AI prompts. Its terms forbid redistributing the content or using it to train AI, and the output looks templated, so study the structure only.
 - **Radix Primitives** (https://www.radix-ui.com) and **shadcn/ui** (https://ui.shadcn.com): accessible behaviour to build your own skin on.
+- **ShaderGradient** (https://shadergradient.co): MIT animated 3D gradient backgrounds for React (`@shadergradient/react`, on React Three Fiber), Vue, Framer and Figma. Turn on `lazyLoad`, keep `pixelDensity` at 1 to 1.5, and give it a static gradient for reduced motion.
+- **Unicorn Studio** (https://unicorn.studio): no-code WebGL effects and scenes embedded through its SDK. The SDK is proprietary and licensed only for Unicorn Studio projects, so check the plan and terms before shipping. Lazy-load scenes, cap `fps` at 30 to 60, `scale` below 1 and `dpi` at 1 to 1.5; scenes pause off-screen. Its docs cap live scenes at 14 on desktop and 8 on Android, counting any other WebGL on the page.
 
 ## Charts and data
 - **Bklit UI** (https://bklit.com/docs/components): MIT composable charts themed by `--chart-1..5` tokens, with spring animation.
@@ -35,6 +37,7 @@ Use these to find references (stage 2) and component mechanics (stage 4). Everyt
 ## Motion skills and references
 - **emilkowalski/skills** (https://github.com/emilkowalski/skills): MIT agent skills for UI motion and review. Useful ones to run on a build: `review-animations`, `improve-animations`, `remove-animations`, `gestures`, `break-ui`.
 - **Motion** (https://motion.dev): docs whose pages are live demos, showing springs and scroll-linked progress values.
+- **Lenis** (https://lenis.dev): MIT smooth scroll that wraps the native scroll, so `position: sticky`, anchor links and accessibility keep working. Default `lerp` is 0.1, and smoothing turns off by default when the user prefers reduced motion. It does not support CSS scroll-snap (use `lenis/snap`), smoothing stops over iframes, and Safari caps it at 60 fps.
 
 ## Workflow tools
 - **Agentation** (https://agentation.com): a dev toolbar that turns clicks on the UI into selectors, file paths and styles for an agent. Free for internal use.
